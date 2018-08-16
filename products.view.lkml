@@ -37,6 +37,24 @@ view: products {
     sql: ${TABLE}.retail_price ;;
   }
 
+  dimension: price_range {
+    case: {
+      when: {
+      sql: ${TABLE}.retail_price <="50";;
+      label: "Low Price Range"
+    }
+      when: {
+      sql: ${TABLE}.retail_price <="150";;
+      label: "Mid Price Range"
+    }
+      when: {
+      sql: ${TABLE}.retail_price <="1000" ;;
+      label: "High Price Range"
+    }
+      else: "Very Expensive"
+   }
+  }
+
   dimension: sku {
     type: string
     sql: ${TABLE}.sku ;;
