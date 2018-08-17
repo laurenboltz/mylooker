@@ -1,6 +1,7 @@
 view: inventory_items {
   sql_table_name: demo_db.inventory_items ;;
 
+
   dimension: id {
     primary_key: yes
     type: number
@@ -47,6 +48,8 @@ view: inventory_items {
   }
 
  dimension: has_sold {
+    description: "Based on the sold date, whether an item has been sold or has not"
+    label: "Item has Sold"
     type: yesno
     sql:  ${TABLE}.sold_at IS NOT NULL ;;
   }
