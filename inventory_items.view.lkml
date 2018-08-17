@@ -49,7 +49,6 @@ view: inventory_items {
  dimension: has_sold {
     type: yesno
     sql:  ${TABLE}.sold_at IS NOT NULL ;;
-    group_label: "Has Sold"
   }
 
   measure: count {

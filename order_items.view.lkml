@@ -38,8 +38,32 @@ view: order_items {
     sql: ${TABLE}.sale_price ;;
   }
 
+  measure: largest_order {
+    type: max
+    sql: ${sale_price} ;;
+    value_format_name: usd
+  }
+
+  measure: avg_order {
+    type: average
+    sql: ${sale_price} ;;
+    value_format_name: usd
+  }
+
+  measure: median_order {
+    type: median
+    sql: ${sale_price} ;;
+    value_format_name: usd
+  }
+
   measure: count {
     type: count
     drill_fields: [id, inventory_items.id, orders.id]
+  }
+
+  measure: total_revenue {
+    type: sum
+    sql: ${sale_price} ;;
+    value_format_name: usd
   }
 }

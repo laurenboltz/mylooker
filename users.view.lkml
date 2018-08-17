@@ -12,6 +12,7 @@ view: users {
     sql: ${TABLE}.age ;;
   }
 
+
   dimension: age_tier {
     type: tier
     tiers: [0,10,20,30,40,50,60,70,80]
@@ -77,6 +78,14 @@ view: users {
   measure: count {
     type: count
     drill_fields: [detail*]
+  }
+
+  measure: users_over_21 {
+    type: count
+    filters: {
+      field: age
+      value: ">21"
+    }
   }
 
   # ----- Sets of fields for drilling ------
