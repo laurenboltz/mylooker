@@ -19,6 +19,10 @@ view: order_items {
     sql: ${TABLE}.order_id ;;
   }
 
+  dimension: order_status {
+    type: string
+    sql: ${orders.status} ;;
+  }
   dimension_group: returned {
     type: time
     timeframes: [

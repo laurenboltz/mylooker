@@ -53,6 +53,13 @@ explore: order_items {
 }
 
 explore: orders {
+  always_filter: {
+    filters: {
+      field: orders.status
+    value: "-pending"
+    }
+  }
+
   join: users {
     type: left_outer
     sql_on: ${orders.user_id} = ${users.id} ;;
@@ -72,6 +79,9 @@ explore: user_data {
   }
 }
 
-explore: users {}
+explore: users {
+  sql_always_where: ${age} > 9 ;;
+  always_filter: {}
+}
 
 explore: users_nn {}

@@ -1,5 +1,5 @@
 view: events {
-  label: "I Don't Know What This View is About"
+  label: "Events - I Don't Know What This View is About"
   sql_table_name: demo_db.events ;;
 
   dimension: id {
