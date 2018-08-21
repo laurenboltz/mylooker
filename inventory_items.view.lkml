@@ -22,7 +22,8 @@ view: inventory_items {
       week,
       month,
       quarter,
-      year
+      year,
+      day_of_week
     ]
     sql: ${TABLE}.created_at ;;
   }
@@ -42,7 +43,8 @@ view: inventory_items {
       week,
       month,
       quarter,
-      year
+      year,
+      day_of_week
     ]
     sql: ${TABLE}.sold_at ;;
   }
