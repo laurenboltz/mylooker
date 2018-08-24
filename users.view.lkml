@@ -88,6 +88,8 @@ view: users {
     }
   }
 
+
+
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [
