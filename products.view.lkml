@@ -15,6 +15,7 @@ view: products {
   dimension: category {
     type: string
     sql: ${TABLE}.category ;;
+    html: <b>{{value}}</b> ;;
   }
 
   dimension: department {
