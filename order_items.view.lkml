@@ -57,6 +57,7 @@ view: order_items {
   measure: median_order {
     type: median
     sql: ${sale_price} ;;
+    html: <center><b>{{rendered_value}}</b></center>
     value_format_name: usd
   }
 
