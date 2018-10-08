@@ -19,6 +19,7 @@ view: orders {
       year
     ]
     sql: ${TABLE}.created_at ;;
+    html: {{ rendered_value | date: "%B %e, %Y" }} ;;
   }
 
   dimension: status {
