@@ -6,7 +6,12 @@ include: "*.view"
 datagroup: model1_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
   max_cache_age: "1 hour"
+
 }
+  named_value_format: test_test {
+    value_format: "0\%"
+  }
+
 
 persist_with: model1_default_datagroup
 
@@ -83,5 +88,6 @@ explore: users {
   sql_always_where: ${age} > 9 ;;
   always_filter: {}
 }
+
 
 explore: users_nn {}

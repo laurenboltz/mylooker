@@ -7,9 +7,22 @@ view: products {
     sql: ${TABLE}.id ;;
   }
 
-  dimension: brand {
+  parameter: test {
     type: string
-    sql: ${TABLE}.brand ;;
+    suggest_dimension: brand
+    }
+
+    dimension: brand {
+      type: string
+      sql: ${TABLE}.brand ;;
+    }
+
+  dimension: test_parameter_value_vs_population_brand {
+    type: string
+   sql: CASE
+        WHEN ${TABLE}.brand = {% parameter test %} THEN ${TABLE}.brand
+        ELSE 'Rest Of Population'
+        END ;;
   }
 
   dimension: category {
@@ -38,6 +51,8 @@ view: products {
     sql: ${TABLE}.retail_price ;;
   }
 
+
+
   dimension: price_range {
     case: {
       when: {
@@ -61,8 +76,18 @@ view: products {
     sql: ${TABLE}.sku ;;
   }
 
+  measure: sum_test {
+    type: sum
+    sql: ${TABLE}.id ;;
+  }
+
   measure: count {
     type: count
-    drill_fields: [id, item_name, inventory_items.count]
+#     drill_fields: [users.id, orders.id, item_name, inventory_items.count]
+  }
+
+  measure: average_price {
+    type: average
+    sql: ${TABLE}.retail_price ;;
   }
 }

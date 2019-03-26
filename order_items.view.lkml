@@ -50,15 +50,24 @@ view: order_items {
 
   measure: avg_order {
     type: average
-    sql: ${sale_price} ;;
+    sql: ${sale_price};;
     value_format_name: usd
   }
 
   measure: median_order {
     type: median
     sql: ${sale_price} ;;
-    html: <center><b>{{rendered_value}}</b></center>
+    html: <center><b>{{rendered_value}}</b></center>;;
     value_format_name: usd
+  }
+
+
+  parameter: test {
+    }
+
+  measure: test_number {
+    type: number
+    sql: {% parameter test %} ;;
   }
 
   measure: count {
@@ -70,5 +79,10 @@ view: order_items {
     type: sum
     sql: ${sale_price} ;;
     value_format_name: usd
+  }
+
+  dimension: picture_test {
+  html: <img src="https://suntimesmedia.files.wordpress.com/2017/12/saturday_night_live__remember_174346-1.jpg?w=763" border="0"  style="width: 100%"> ;;
+  sql: 1=1 ;;
   }
 }
